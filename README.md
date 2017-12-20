@@ -1,2 +1,2 @@
 # University-Project\
-coolstore.tk
+Адресс нашего сайта(домен): coolstore.tk
