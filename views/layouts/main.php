@@ -68,7 +68,39 @@ AppAsset::register($this);
         <div class="container">
             <div class="row">
                 <nav>
-                    <!-- Brand and toggle get grouped for better mobile display -->
+
+
+                    <?php
+                    NavBar::begin([
+                        'brandUrl' => Yii::$app->homeUrl,
+                        'options' => [
+                            'class' => ' ',
+                        ],
+                    ]);
+                    echo Nav::widget([
+                        'options' => ['class' => 'navbar-nav'],
+                        'items' => [
+                            ['label' => 'Home', 'url' => ['/site/index']],
+                            ['label' => 'About', 'url' => ['/site/about']],
+                            ['label' => 'Contact', 'url' => ['/site/contact']],
+                            Yii::$app->user->isGuest ? (
+                            ['label' => 'Login', 'url' => ['/site/login']]
+                            ) : (
+                                '<li>'
+                                . Html::beginForm(['/site/logout'], 'post')
+                                . Html::submitButton(
+                                    'Logout (' . Yii::$app->user->identity->username . ')',
+                                    ['class' => 'btn btn-link logout']
+                                )
+                                . Html::endForm()
+                                . '</li>'
+                            )
+                        ],
+                    ]);
+                    NavBar::end();
+                    ?>
+
+<!--
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
@@ -78,7 +110,7 @@ AppAsset::register($this);
                         </button>
                     </div>
 
-                    <!-- Collect the nav links, forms, and other content for toggling -->
+
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="#">Наушники</a></li>
@@ -87,7 +119,11 @@ AppAsset::register($this);
                             <li><a href="#">Гемпады</a></li>
                             <li><a href="#">Коврики</a></li>
                         </ul>
-                    </div><!-- /.navbar-collapse -->
+                    </div>
+
+-->
+
+
                 </nav>
             </div>
         </div>
@@ -396,7 +432,7 @@ AppAsset::register($this);
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() */ ?>
-        <?= $content  ?>
+        <?//= $content  ?>
 
 
 <?php $this->endBody() ?>
