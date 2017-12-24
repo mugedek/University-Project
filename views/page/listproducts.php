@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'CoolStore';
+$this->title = 'Список товаров Coolstore';
 ?>
 
 <p>Tik-tak Maza Faka!</p>

@@ -67,7 +67,7 @@ AppAsset::register($this);
     <div class="container-fluid menu_top">
         <div class="container">
             <div class="row">
-                <nav>
+
 
 
                     <?php
@@ -81,7 +81,7 @@ AppAsset::register($this);
                         'options' => ['class' => 'navbar-nav'],
                         'items' => [
                             ['label' => 'Home', 'url' => ['/site/index']],
-                            ['label' => 'About', 'url' => ['/site/about']],
+                            ['label' => 'Список товаров', 'url' => ['/page/listproducts']],
                             ['label' => 'Contact', 'url' => ['/site/contact']],
                             Yii::$app->user->isGuest ? (
                             ['label' => 'Login', 'url' => ['/site/login']]
@@ -124,7 +124,7 @@ AppAsset::register($this);
 -->
 
 
-                </nav>
+
             </div>
         </div>
     </div>
